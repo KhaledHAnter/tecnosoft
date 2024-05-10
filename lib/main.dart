@@ -49,7 +49,7 @@ class Tecnosoft extends StatelessWidget {
         ForgetPasswordView.id: (context) => const ForgetPasswordView(),
         UserDetails.id: (context) => const UserDetails(),
       },
-      initialRoute: NavHome.id,
+      initialRoute: OnboardindView.id,
     );
   }
 }
