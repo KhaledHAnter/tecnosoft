@@ -27,8 +27,10 @@ class _HomeViewState extends State<HomeView> {
   List<ItemModel> products = [];
 
   getData() async {
-    QuerySnapshot querySnapshot =
-        await FirebaseFirestore.instance.collection("Items").orderBy('id').get();
+    QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+        .collection("Items")
+        .orderBy('id')
+        .get();
     setState(() {
       // products.addAll();
       for (int i = 0; i < querySnapshot.docs.length; i++) {
@@ -40,6 +42,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     getData();
+
     super.initState();
   }
 

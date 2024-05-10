@@ -25,7 +25,7 @@ class _NavHomeState extends State<NavHome> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: _widgetOptions.elementAt(_currentIndex),
-        extendBody: true,
+        extendBody: false,
         bottomNavigationBar: SafeArea(
           child: Container(
             decoration: BoxDecoration(

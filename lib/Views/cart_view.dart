@@ -1,8 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
+import 'package:tecnosoft_task/Models/cart_model.dart';
+import 'package:tecnosoft_task/Models/item_model.dart';
+import 'package:tecnosoft_task/Views/user_details_view.dart';
 import 'package:tecnosoft_task/Widgets/app_text.dart';
+import 'package:tecnosoft_task/Widgets/cart_item.dart';
 import 'package:tecnosoft_task/Widgets/custom_app_bar.dart';
 import 'package:tecnosoft_task/constants.dart';
 
@@ -17,6 +22,47 @@ class CartView extends StatefulWidget {
 
 class _CartViewState extends State<CartView> {
   int numOfItem = 1;
+  double totalPrice = 0.0;
+
+  List<CartModel> cart = [];
+  List<int> ids = [];
+  List<double> productpricemultiplied = [];
+  List<ItemModel> products = [];
+
+  getCartData() async {
+    QuerySnapshot CartquerySnapshot =
+        await FirebaseFirestore.instance.collection("Cart").get();
+    setState(() {
+      // products.addAll();
+      for (int i = 0; i < CartquerySnapshot.docs.length; i++) {
+        cart.add(CartModel.fromJson(CartquerySnapshot.docs[i].data()));
+        ids.add(cart[i].id);
+        productpricemultiplied.add(cart[i].price * cart[i].quantity);
+      }
+    });
+    QuerySnapshot ProductquerySnapshot = await FirebaseFirestore.instance
+        .collection("Items")
+        .where("id", whereIn: ids)
+        .get();
+
+    setState(() {
+      // products.addAll();
+      for (int i = 0; i < ids.length; i++) {
+        products.add(ItemModel.fromJson(ProductquerySnapshot.docs[i].data()));
+      }
+    });
+    print(productpricemultiplied);
+    // for (int i = 0; i < productpricemultiplied.length; i++) {
+    //   totalPrice += productpricemultiplied[i];
+    // }
+  }
+
+  @override
+  void initState() {
+    getCartData();
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,30 +87,35 @@ class _CartViewState extends State<CartView> {
               thickness: 2,
             ),
             SizedBox(
-              height: 400.h,
+              height: 350.h,
               width: double.infinity,
               child: ListView.builder(
                   padding: EdgeInsets.zero,
-                  itemCount: 5,
+                  itemCount: products.length,
                   itemBuilder: (context, index) {
-                    return const Column(
+                    totalPrice += productpricemultiplied[index];
+                    return Column(
                       children: [
-                        // CartItem(
-                        //   numOfItem: numOfItem,
-                        //   onAdd: () {
-                        //     setState(() {
-                        //       numOfItem++;
-                        //     });
-                        //   },
-                        //   onRemove: () {
-                        //     setState(() {
-                        //       if (numOfItem > 1) {
-                        //         numOfItem--;
-                        //       }
-                        //     });
-                        //   },
-                        // ),
-                        Divider(
+                        CartItem(
+                          name: products[index].name,
+                          image: products[index].images[0],
+                          price: products[index].price,
+                          numOfItem: cart[index].quantity,
+                          gender: products[index].gender,
+                          onAdd: () {
+                            setState(() {
+                              cart[index].quantity++;
+                            });
+                          },
+                          onRemove: () {
+                            setState(() {
+                              if (cart[index].quantity > 1) {
+                                cart[index].quantity--;
+                              }
+                            });
+                          },
+                        ),
+                        const Divider(
                           thickness: 2,
                         ),
                       ],
@@ -83,7 +134,7 @@ class _CartViewState extends State<CartView> {
                     color: Colors.grey.shade600,
                   ),
                   AppText(
-                    text: "\$ 800.00",
+                    text: "\$ ${totalPrice.toStringAsFixed(2)}",
                     size: 20.sp,
                     weight: FontWeight.bold,
                   ),
@@ -130,6 +181,9 @@ class _CartViewState extends State<CartView> {
               ),
             ),
             Gap(32.h),
+            const Divider(
+              thickness: 1,
+            ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
               child: Row(
@@ -141,7 +195,8 @@ class _CartViewState extends State<CartView> {
                     color: Colors.grey.shade600,
                   ),
                   AppText(
-                    text: "\$ 780.00",
+                    text:
+                        "\$ ${((totalPrice + 10) - (totalPrice * 0.1)).toStringAsFixed(2)}",
                     size: 20.sp,
                     weight: FontWeight.bold,
                   ),
@@ -149,15 +204,20 @@ class _CartViewState extends State<CartView> {
               ),
             ),
             const Spacer(),
-            Container(
-              constraints: BoxConstraints(minHeight: 50.h),
-              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 12.h),
-              decoration: BoxDecoration(
-                color: kYallowColor,
-                borderRadius: BorderRadius.circular(32.r),
-              ),
-              child: const Center(
-                child: AppText(text: "Check Out"),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, UserDetails.id);
+              },
+              child: Container(
+                constraints: BoxConstraints(minHeight: 50.h),
+                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 12.h),
+                decoration: BoxDecoration(
+                  color: kYallowColor,
+                  borderRadius: BorderRadius.circular(32.r),
+                ),
+                child: const Center(
+                  child: AppText(text: "Check Out"),
+                ),
               ),
             )
           ],

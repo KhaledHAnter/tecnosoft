@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
+import 'package:tecnosoft_task/Helper/show_snackbar.dart';
 import 'package:tecnosoft_task/Models/item_model.dart';
+import 'package:tecnosoft_task/Services/items_services.dart';
 import 'package:tecnosoft_task/Widgets/app_text.dart';
 import 'package:tecnosoft_task/Widgets/custom_app_bar.dart';
 import 'package:tecnosoft_task/constants.dart';
@@ -28,9 +30,7 @@ class _ItemDetailsState extends State<ItemDetails> {
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
       body: Padding(
-        padding: EdgeInsets.only(
-          top: 40.h,
-        ),
+        padding: EdgeInsets.only(top: 40.h, bottom: 8.h),
         child: Column(
           children: <Widget>[
             Container(
@@ -241,7 +241,6 @@ class _ItemDetailsState extends State<ItemDetails> {
                       ],
                     ),
                     const Spacer(),
-                    Gap(20.h)
                   ],
                 ),
               ),
@@ -317,15 +316,26 @@ class _ItemDetailsState extends State<ItemDetails> {
                     ),
                     Gap(16.w),
                     Expanded(
-                      child: Container(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 8.w, vertical: 12.h),
-                        decoration: BoxDecoration(
-                          color: kYallowColor,
-                          borderRadius: BorderRadius.circular(32.r),
-                        ),
-                        child: const Center(
-                          child: AppText(text: "Add to cart"),
+                      child: GestureDetector(
+                        onTap: () {
+                          addToCart(
+                              id: product.id,
+                              price: product.price,
+                              quantity: numOfItem,
+                              size: product.sizes[_currentSizeIndex]);
+                          showSnackbar(context,
+                              'Item Added to cart successfully', Colors.green);
+                        },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 8.w, vertical: 12.h),
+                          decoration: BoxDecoration(
+                            color: kYallowColor,
+                            borderRadius: BorderRadius.circular(32.r),
+                          ),
+                          child: const Center(
+                            child: AppText(text: "Add to cart"),
+                          ),
                         ),
                       ),
                     )

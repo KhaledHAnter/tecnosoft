@@ -9,6 +9,7 @@ import 'package:tecnosoft_task/Views/login_view.dart';
 import 'package:tecnosoft_task/Views/nav_home.dart';
 import 'package:tecnosoft_task/Views/onboarding_view.dart';
 import 'package:tecnosoft_task/Views/register_view.dart';
+import 'package:tecnosoft_task/Views/user_details_view.dart';
 import 'package:tecnosoft_task/firebase_options.dart';
 
 void main() async {
@@ -46,6 +47,7 @@ class Tecnosoft extends StatelessWidget {
         RegisterView.id: (context) => const RegisterView(),
         LoginView.id: (context) => const LoginView(),
         ForgetPasswordView.id: (context) => const ForgetPasswordView(),
+        UserDetails.id: (context) => const UserDetails(),
       },
       initialRoute: NavHome.id,
     );
