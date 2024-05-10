@@ -52,7 +52,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCcEuVlCjHg6JvKzt3AkxKCgtmSdm24xwA',
-    appId: '1:534439108970:android:2ca56527ca6f0dbf778513',
+    appId: '1:534439108970:android:f287e569b5fcf40b778513',
     messagingSenderId: '534439108970',
     projectId: 'tecnosoft-226cf',
     storageBucket: 'tecnosoft-226cf.appspot.com',
@@ -60,31 +60,31 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAmE95KauWmb2pgeVAwIrXt3qVvzu-U_FM',
-    appId: '1:534439108970:ios:78e81658162c65e4778513',
+    appId: '1:534439108970:ios:e4d6cf16d339e2c7778513',
     messagingSenderId: '534439108970',
     projectId: 'tecnosoft-226cf',
     storageBucket: 'tecnosoft-226cf.appspot.com',
-    iosClientId: '534439108970-k2kr6gd326iea3gl85j8q6ar08oqm5f6.apps.googleusercontent.com',
-    iosBundleId: 'com.example.tecnosft2',
+    iosClientId: '534439108970-kqoilqgfc190tnbkk3guefctqustdavn.apps.googleusercontent.com',
+    iosBundleId: 'com.example.tecnosoftTask',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyAmE95KauWmb2pgeVAwIrXt3qVvzu-U_FM',
-    appId: '1:534439108970:ios:78e81658162c65e4778513',
+    appId: '1:534439108970:ios:e4d6cf16d339e2c7778513',
     messagingSenderId: '534439108970',
     projectId: 'tecnosoft-226cf',
     storageBucket: 'tecnosoft-226cf.appspot.com',
-    iosClientId: '534439108970-k2kr6gd326iea3gl85j8q6ar08oqm5f6.apps.googleusercontent.com',
-    iosBundleId: 'com.example.tecnosft2',
+    iosClientId: '534439108970-kqoilqgfc190tnbkk3guefctqustdavn.apps.googleusercontent.com',
+    iosBundleId: 'com.example.tecnosoftTask',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
     apiKey: 'AIzaSyArNq8MX2zKH4XE3lef0OQsfgH6W0pXf_Q',
-    appId: '1:534439108970:web:7bcc5502ac15204e778513',
+    appId: '1:534439108970:web:a8ac0b4bd8aa5b79778513',
     messagingSenderId: '534439108970',
     projectId: 'tecnosoft-226cf',
     authDomain: 'tecnosoft-226cf.firebaseapp.com',
     storageBucket: 'tecnosoft-226cf.appspot.com',
-    measurementId: 'G-1439KZR9YY',
+    measurementId: 'G-QD12X07VBM',
   );
 }

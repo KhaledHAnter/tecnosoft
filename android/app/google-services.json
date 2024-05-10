@@ -1,0 +1,118 @@
+{
+  "project_info": {
+    "project_number": "534439108970",
+    "project_id": "tecnosoft-226cf",
+    "storage_bucket": "tecnosoft-226cf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:534439108970:android:2ca56527ca6f0dbf778513",
+        "android_client_info": {
+          "package_name": "com.example.tecnosft2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "534439108970-4gjaird289dnf1e9ul1685tk6gq1t9o4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcEuVlCjHg6JvKzt3AkxKCgtmSdm24xwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "534439108970-4gjaird289dnf1e9ul1685tk6gq1t9o4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "534439108970-id1a01kq6vaf55a4c45a4vpsbd8rocfg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.tecnosoft"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:534439108970:android:3ef06f16298d760f778513",
+        "android_client_info": {
+          "package_name": "com.example.tecnosoft"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "534439108970-4gjaird289dnf1e9ul1685tk6gq1t9o4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcEuVlCjHg6JvKzt3AkxKCgtmSdm24xwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "534439108970-4gjaird289dnf1e9ul1685tk6gq1t9o4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "534439108970-id1a01kq6vaf55a4c45a4vpsbd8rocfg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.tecnosoft"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:534439108970:android:f287e569b5fcf40b778513",
+        "android_client_info": {
+          "package_name": "com.example.tecnosoft_task"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "534439108970-4gjaird289dnf1e9ul1685tk6gq1t9o4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcEuVlCjHg6JvKzt3AkxKCgtmSdm24xwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "534439108970-4gjaird289dnf1e9ul1685tk6gq1t9o4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "534439108970-id1a01kq6vaf55a4c45a4vpsbd8rocfg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.tecnosoft"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
